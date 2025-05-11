@@ -48,7 +48,7 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str,
     # TODO: ADD Validation on credentials
 
     await hass.async_add_executor_job(we_connect.login)
-    # await hass.async_add_executor_job(we_connect.update)
+    await hass.async_add_executor_job(we_connect.update)
 
     # vin = next(iter(we_connect.vehicles.items()))[0]
 
