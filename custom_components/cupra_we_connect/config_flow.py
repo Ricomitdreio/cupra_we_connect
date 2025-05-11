@@ -72,6 +72,8 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         errors = {}
 
         try:
+            _LOGGER.exception(self.hass, exc_info=1)
+            _LOGGER.exception(user_input, exc_info=1)
             info = await validate_input(self.hass, user_input)
         except CannotConnect:
             _LOGGER.exception("CannotConnect exception during setup", exc_info=1)
